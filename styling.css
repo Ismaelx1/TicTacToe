@@ -1,0 +1,35 @@
+body {
+    background-color: #403d3d;
+  }
+  .cell {
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+   border: 1px groove white;
+   
+   
+      font-weight: bolder;
+
+      color: black;
+    
+   
+   
+    }
+ 
+
+  
+    #container {
+      
+   display: grid;
+  
+grid-template-rows: 33% 33% 33%;
+grid-template-columns: 33% 33% 33%;
+max-width: 300px;
+  }
+  
+
+  
