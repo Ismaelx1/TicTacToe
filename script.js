@@ -1,141 +1,104 @@
+const playerX = document.querySelector('.playerX')
+const result = document.querySelector('#result')
+const gameBoard = document.querySelector('.container')
+const resetBtn = document.getElementById('reset')
+const cases = document.querySelectorAll('.tile')
+const case0 = document.querySelector("body > main > section.container > div:nth-child(1)")
+const case1 = document.querySelector("body > main > section.container > div:nth-child(2)")
+const case2 = document.querySelector("body > main > section.container > div:nth-child(3)")
+const case3 = document.querySelector("body > main > section.container > div:nth-child(4)")
+const case4 = document.querySelector("body > main > section.container > div:nth-child(5)")
+const case5 = document.querySelector("body > main > section.container > div:nth-child(6)")
+const case6 = document.querySelector("body > main > section.container > div:nth-child(7)")
+const case7 = document.querySelector("body > main > section.container > div:nth-child(8)")
+const case8 = document.querySelector("body > main > section.container > div:nth-child(9)")
 
 
 
 
 
+function colors() {
+  
+}
+
+function checkWin() {
+
+  if (case0.innerHTML == 'X' && case1.innerHTML == 'X' && case2.innerHTML == 'X') {
+   alert('Player X Has Won!')
+   result.innerHTML = 'Congratulation Player X !'
+  } else   if (case0.innerHTML == 'O' && case1.innerHTML == 'O' && case2.innerHTML == 'O') {
+    alert('Player O Has Won!')
+    result.innerHTML = 'Congratulation Player O !'
+   } else if (case3.innerHTML == 'X' && case4.innerHTML == 'X' && case5.innerHTML == 'X') {
+    alert('Player X Has Won!')
+    result.innerHTML = 'Congratulation Player X !'
+   } else if (case3.innerHTML == 'O' && case4.innerHTML == 'O' && case5.innerHTML == 'O') {
+    alert('Player O Has Won!')
+    result.innerHTML = 'Congratulation Player O !'
+} else if (case6.innerHTML == 'O' && case7.innerHTML == 'O' && case8.innerHTML == 'O') {
+  alert('Player O Has Won!') 
+  result.innerHTML = 'Congratulation Player O !'
+} else if (case6.innerHTML == 'X' && case7.innerHTML == 'X' && case8.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case0.innerHTML == 'X' && case4.innerHTML == 'X' && case8.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case0.innerHTML == 'O' && case4.innerHTML == 'O' && case8.innerHTML == 'O') {
+  alert('Player O Has Won!')
+  result.innerHTML = 'Congratulation Player O !'
+ } else if (case2.innerHTML == 'O' && case4.innerHTML == 'O' && case6.innerHTML == 'O') {
+  alert('Player O Has Won!')
+  result.innerHTML = 'Congratulation Player O !'
+ } else if (case2.innerHTML == 'X' && case4.innerHTML == 'X' && case6.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case0.innerHTML == 'X' && case3.innerHTML == 'X' && case6.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case0.innerHTML == 'O' && case3.innerHTML == 'O' && case6.innerHTML == 'O') {
+  alert('Player O Has Won!')
+  result.innerHTML = 'Congratulation Player O !'
+ } else if (case1.innerHTML == 'X' && case4.innerHTML == 'X' && case7.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case1.innerHTML == 'O' && case4.innerHTML == 'O' && case7.innerHTML == 'O') {
+  alert('Player O Has Won!')
+  result.innerHTML = 'Congratulation Player O !'
+ } else if (case2.innerHTML == 'X' && case5.innerHTML == 'X' && case8.innerHTML == 'X') {
+  alert('Player X Has Won!')
+  result.innerHTML = 'Congratulation Player X !'
+ } else if (case2.innerHTML == 'O' && case5.innerHTML == 'O' && case8.innerHTML == 'O') {
+  alert('Player O Has Won!')
+  result.innerHTML = 'Congratulation Player O !'
+ } 
+ 
+}
 
 
 
+gameBoard.addEventListener('click', colors, false)
+  function colors(event) {
+   if (playerX.innerHTML == 'X') {
+    event.target.innerHTML = 'X'
+    playerX.innerHTML = 'O'
+    checkWin()
+  
+   } else if (event.target.innerHTML) {
+     return false
+ 
+   }
+    else {
+    event.target.innerHTML = 'O'
+    playerX.innerHTML = 'X'
+    checkWin()
+   }
+ 
+  }
+
+resetBtn.addEventListener('click', function() {
+  location.reload();
+})
 
 
-/*
-        const Player = (sign) => {
-            this.sign = sign;
-          
-            const getSign = () => {
-              return sign;
-            };
-          
-            return { getSign };
-          };
 
-        const gameBoard = (() => {
-            const board = ["", "", "", "", "", "", "", "", ""];
-          
-            const setField = (index, sign) => {
-              if (index > board.length) return;
-              board[index] = sign;
-            };
-          
-            const getField = (index) => {
-              if (index > board.length) return;
-              return board[index];
-            };
-          
-            const reset = () => {
-              for (let i = 0; i < board.length; i++) {
-                board[i] = "";
-              }
-            };
-          
-            return { setField, getField, reset };
-          })();
-
-
-          const displayController = (() => {
-            const fieldElements = document.querySelectorAll(".cell");
-            const messageElement = document.getElementById("message");
-            const restartButton = document.getElementById("restart-button");
-          
-            fieldElements.forEach((field) =>
-              field.addEventListener("click", (e) => {
-                if (gameController.getIsOver() || e.target.textContent !== "") return;
-                gameController.playRound(parseInt(e.target.dataset.index));
-                updateGameboard();
-              })
-            );
-            restartButton.addEventListener("click", (e) => {
-                gameBoard.reset();
-                gameController.reset();
-                updateGameboard();
-                setMessageElement("Player X's turn");
-              });
-              const updateGameboard = () => {
-                for (let i = 0; i < fieldElements.length; i++) {
-                  fieldElements[i].textContent = gameBoard.getField(i);
-                }
-              };
-              const setResultMessage = (winner) => {
-                if (winner === "Draw") {
-                  setMessageElement("It's a draw!");
-                } else {
-                  setMessageElement(`Player ${winner} has won!`);
-                }
-              };
-            
-              const setMessageElement = (message) => {
-                messageElement.textContent = message;
-              };
-            
-              return { setResultMessage, setMessageElement };
-            })();
-            const gameController = (() => {
-                const playerX = Player("X");
-                const playerO = Player("O");
-                let round = 1;
-                let isOver = false;
-              
-                const playRound = (fieldIndex) => {
-                  gameBoard.setField(fieldIndex, getCurrentPlayerSign());
-                  if (checkWinner(fieldIndex)) {
-                    displayController.setResultMessage(getCurrentPlayerSign());
-                    isOver = true;
-                    return;
-                  }
-                  if (round === 9) {
-                    displayController.setResultMessage("Draw");
-                    isOver = true;
-                    return;
-                  }
-                  round++;
-                  displayController.setMessageElement(
-                    `Player ${getCurrentPlayerSign()}'s turn`
-                  );
-                };
-              
-                const getCurrentPlayerSign = () => {
-                  return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
-                };
-              
-                const checkWinner = (fieldIndex) => {
-                  const winConditions = [
-                    [0, 1, 2],
-                    [3, 4, 5],
-                    [6, 7, 8],
-                    [0, 3, 6],
-                    [1, 4, 7],
-                    [2, 5, 8],
-                    [0, 4, 8],
-                    [2, 4, 6],
-                  ];
-              
-                  return winConditions
-                    .filter((combination) => combination.includes(fieldIndex))
-                    .some((possibleCombination) =>
-                      possibleCombination.every(
-                        (index) => gameBoard.getField(index) === getCurrentPlayerSign()
-                      )
-                    );
-                };
-              
-                const getIsOver = () => {
-                  return isOver;
-                };
-              
-                const reset = () => {
-                  round = 1;
-                  isOver = false;
-                };
-              
-                return { playRound, getIsOver, reset };
-              })(); */
