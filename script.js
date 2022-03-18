@@ -13,7 +13,10 @@ const case6 = document.querySelector("body > main > section.container > div:nth-
 const case7 = document.querySelector("body > main > section.container > div:nth-child(8)")
 const case8 = document.querySelector("body > main > section.container > div:nth-child(9)")
 
-
+function wonC(playa) {
+  alert(`Player ${playa} Has Won!!`)
+  result.innerHTML = `Congratulation Player ${playa} ! <br> Click The Reset Button Below to Try Again =)`
+}
 
 
 
@@ -27,68 +30,52 @@ function colors() {
 function checkWin() {
 
   if (case0.innerHTML == 'X' && case1.innerHTML == 'X' && case2.innerHTML == 'X') {
-   alert('Player X Has Won!')
-   result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
   } 
   else   if (case0.innerHTML == 'O' && case1.innerHTML == 'O' && case2.innerHTML == 'O') {
-    alert('Player O Has Won!')
-    result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+    wonC('O')
    } 
    else if (case3.innerHTML == 'X' && case4.innerHTML == 'X' && case5.innerHTML == 'X') {
-    alert('Player X Has Won!')
-    result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+    wonC('X')
    } 
    else if (case3.innerHTML == 'O' && case4.innerHTML == 'O' && case5.innerHTML == 'O') {
-    alert('Player O Has Won!')
-    result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+    wonC('O')
 } 
 else if (case6.innerHTML == 'O' && case7.innerHTML == 'O' && case8.innerHTML == 'O') {
-  alert('Player O Has Won!') 
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('O')
 } 
 else if (case6.innerHTML == 'X' && case7.innerHTML == 'X' && case8.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  } 
  else if (case0.innerHTML == 'X' && case4.innerHTML == 'X' && case8.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  }
   else if (case0.innerHTML == 'O' && case4.innerHTML == 'O' && case8.innerHTML == 'O') {
-  alert('Player O Has Won!')
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+    wonC('O')
  } 
  else if (case2.innerHTML == 'O' && case4.innerHTML == 'O' && case6.innerHTML == 'O') {
-  alert('Player O Has Won!')
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('O')
  } 
  else if (case2.innerHTML == 'X' && case4.innerHTML == 'X' && case6.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  } 
  else if (case0.innerHTML == 'X' && case3.innerHTML == 'X' && case6.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  } 
  else if (case0.innerHTML == 'O' && case3.innerHTML == 'O' && case6.innerHTML == 'O') {
-  alert('Player O Has Won!')
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('O')
  } 
  else if (case1.innerHTML == 'X' && case4.innerHTML == 'X' && case7.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  } 
  else if (case1.innerHTML == 'O' && case4.innerHTML == 'O' && case7.innerHTML == 'O') {
-  alert('Player O Has Won!')
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('O')
  } 
  else if (case2.innerHTML == 'X' && case5.innerHTML == 'X' && case8.innerHTML == 'X') {
-  alert('Player X Has Won!')
-  result.innerHTML = 'Congratulation Player X ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('X')
  } 
  else if (case2.innerHTML == 'O' && case5.innerHTML == 'O' && case8.innerHTML == 'O') {
-  alert('Player O Has Won!')
-  result.innerHTML = 'Congratulation Player O ! <br> Click The Reset Button Below to Try Again =)'
+  wonC('O')
  } 
 }
 
@@ -112,6 +99,3 @@ gameBoard.addEventListener('click', colors, false)
 resetBtn.addEventListener('click', function() {
   location.reload();
 })
-
-
-
