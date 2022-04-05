@@ -86,6 +86,7 @@ gameBoard.addEventListener('click', colors, false)
     event.target.innerHTML = 'X'
       playerX.innerHTML = 'O'
         checkWin()
+        checkDraw()
    } else if (event.target.innerHTML) {
         return false
    }
@@ -93,9 +94,16 @@ gameBoard.addEventListener('click', colors, false)
     event.target.innerHTML = 'O'
       playerX.innerHTML = 'X'
         checkWin()
+        checkDraw()
    }
   }
 
 resetBtn.addEventListener('click', function() {
   location.reload();
 })
+
+function checkDraw() {
+  if (case0.innerHTML && case1.innerHTML && case2.innerHTML && case3.innerHTML && case4.innerHTML && case5.innerHTML && case6.innerHTML && case7.innerHTML && case8.innerHTML) {
+    alert("That's a Tie! Click Reset To Try Again.")
+  }
+}
